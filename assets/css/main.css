@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "pixel";
+  src: url(../fonts/Pixel_Times.ttf);
+}
+
+@font-face {
+  font-family: "pixel_bold";
+  src: url(../fonts/Pixel_Times_Bold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: pixel;
+}
+
+* a {
+  text-decoration: none;
+}
+
+#menu {
+  background-color: aquamarine;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 40vw 60vw;
+}
+#menu button {
+  font-size: 2.5vh;
+}
+#game {
+  display: none;
+  background: lightblue;
+  height: 100vh;
+  width: 100vw;
+}
+
+#menu .new_game {
+  display: none;
+  grid-template-rows: repeat(3, 6vh) 32vh;
+  padding: 0 7.5vw 0 7.5vw;
+}
+
+#menu .new_game button {
+  margin-top: 1vh;
+}
+
+#menu .new_game h2 {
+  text-align: center;
+}
+
+#menu .continue_game {
+  display: none;
+}
+#menu .continue_game h2 {
+  text-align: center;
+}
+
+#menu .settings {
+  display: none;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#menu #menu_canvas {
+  grid-column: 2;
+  background-color: blueviolet;
+  width: 60vw;
+  height: 100vh;
+}
+
+#menu .menu_action {
+  grid-column: 1;
+  display: grid;
+  grid-template-rows: 10vh 20vh 50vh 10vh 10vh;
+}
+
+#menu .menu_action .back_button {
+  display: none;
+  grid-row: 4;
+  margin-left: 10vw;
+}
+
+#menu .menu_action .menu_image {
+  grid-row: 2;
+  margin-left: 5vw;
+}
+
+#menu .menu_action .switch_menu {
+  grid-row: 3;
+}
+
+.menu_image img {
+  height: 18vh;
+  width: 30vw;
+}
+
+.switch_menu .main_menu button {
+  height: 6vh;
+  width: 25vw;
+  margin-bottom: 1vh;
+}
+
+.switch_menu .main_menu {
+  margin-left: 7.5vw;
+}
+
+#menu .menu_action .back_button button {
+  height: 6vh;
+  width: 20vw;
+}
+
+.downloads {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}

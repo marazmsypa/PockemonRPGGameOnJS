@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/jquery361.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <title>Pokemon RPG</title>
+  </head>
+  <body>
+    <canvas class="downloads"></canvas>
+    <div id="menu">
+      <div class="menu_action">
+        <div class="menu_image">
+          <img src="assets/img/menu_example.jpg" alt="изображение меню" />
+        </div>
+        <div class="switch_menu">
+          <section class="main_menu">
+            <button class="start_new_game">Начать новую игру</button>
+            <button class="continue_game_button">Продолжить игру</button>
+            <button class="settings_button">Настройки</button>
+          </section>
+          <section class="new_game">
+            <h2>Введите свое имя:</h2>
+            <input type="text" class="name" />
+            <button class="ready_to_start_new_button">Начать игру</button>
+          </section>
+          <section class="continue_game">
+            <h2>Сохранений пока-что нет</h2>
+          </section>
+          <section class="settings">
+            <p>Уровень звука</p>
+            <input type="range" />
+          </section>
+        </div>
+        <div class="back_button">
+          <button>Назад</button>
+        </div>
+      </div>
+      <canvas id="menu_canvas"> </canvas>
+    </div>
+    <div id="game">
+      <div>
+        <canvas class="game_canvas"> </canvas>
+        <div></div>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>
