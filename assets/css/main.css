@@ -24,6 +24,7 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 40vw 60vw;
+  background-image: url(../img/bg_menu.jpg);
 }
 #menu button {
   font-size: 2.5vh;
