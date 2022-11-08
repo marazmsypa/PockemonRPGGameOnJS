@@ -1,6 +1,6 @@
 @font-face {
   font-family: "pixel";
-  src: url(../fonts/Pixel_Times.ttf);
+  src: url(../fonts/PressStart2P-Regular.ttf);
 }
 
 @font-face {
@@ -25,21 +25,17 @@
   display: grid;
   grid-template-columns: 40vw 60vw;
   background-image: url(../img/bg_menu.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 #menu button {
-  font-size: 2.5vh;
-}
-#game {
-  display: none;
-  background: lightblue;
-  height: 100vh;
-  width: 100vw;
+  font-size: 1.8vh;
 }
 
 #menu .new_game {
   display: none;
-  grid-template-rows: repeat(3, 6vh) 32vh;
-  padding: 0 7.5vw 0 7.5vw;
+  grid-template-rows: repeat(3, 8vh) 32vh;
+  padding: 0 9vw 0 9vw;
 }
 
 #menu .new_game button {
@@ -65,7 +61,6 @@
 
 #menu #menu_canvas {
   grid-column: 2;
-  background-color: blueviolet;
   width: 60vw;
   height: 100vh;
 }
@@ -79,7 +74,7 @@
 #menu .menu_action .back_button {
   display: none;
   grid-row: 4;
-  margin-left: 10vw;
+  margin-left: 11vw;
 }
 
 #menu .menu_action .menu_image {
@@ -97,25 +92,91 @@
 }
 
 .switch_menu .main_menu button {
-  height: 6vh;
-  width: 25vw;
+  height: 8vh;
+  width: 20vw;
   margin-bottom: 1vh;
 }
 
 .switch_menu .main_menu {
-  margin-left: 7.5vw;
+  margin-left: 10vw;
 }
 
 #menu .menu_action .back_button button {
-  height: 6vh;
-  width: 20vw;
+  height: 8vh;
+  width: 18vw;
 }
 
-.downloads {
+.lugia_img {
+  width: 70vw;
+  width: 70vh;
+}
+.img_menu {
   position: absolute;
+  top: 5vh;
+  left: 50vw;
+}
+
+.start_new_game {
+  background: none;
+  border: none;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.continue_game_button {
+  background: none;
+  border: none;
+  background-image: url(../img/yellow.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.settings_button {
+  background: none;
+  border: none;
+  background-image: url(../img/red.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.back_button_btn {
+  background: none;
+  border: none;
+  background-image: url(../img/red.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.ready_to_start_new_button {
+  background: none;
+  border: none;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.name_div {
+  background: none;
+  border: none;
+  background-image: url(../img/sinyayaf_knopka.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.name {
+  width: 17vw;
+  color: white;
+  margin-left: 2.3vw;
+  margin-top: 2.9vh;
+  background: none;
+  border: none;
+  font-size: 2vh;
+}
+.name:focus {
+  border: none;
+  outline: none;
+}
+#game {
   display: none;
-  left: 0;
-  top: 0;
-  width: 100vw;
+  background: lightblue;
   height: 100vh;
+  width: 100vw;
 }

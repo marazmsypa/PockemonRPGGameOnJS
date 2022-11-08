@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png" />
     <script src="assets/js/jquery361.js"></script>
     <script src="assets/js/menu.js"></script>
     <title>Pokemon RPG</title>
   </head>
   <body>
-    <canvas class="downloads"></canvas>
     <div id="menu">
       <div class="menu_action">
         <div class="menu_image">
@@ -23,7 +23,9 @@
           </section>
           <section class="new_game">
             <h2>Введите свое имя:</h2>
-            <input type="text" class="name" />
+            <div class="name_div">
+              <input type="text" class="name" />
+            </div>
             <button class="ready_to_start_new_button">Начать игру</button>
           </section>
           <section class="continue_game">
@@ -35,16 +37,14 @@
           </section>
         </div>
         <div class="back_button">
-          <button>Назад</button>
+          <button class="back_button_btn">Назад</button>
         </div>
       </div>
-    </div>
-    <div id="game">
-      <div>
-        <canvas class="game_canvas"> </canvas>
-        <div></div>
+      <div class="img_menu">
+        <img src="assets/img/lugia.png" alt="lugia" class="lugia_img" />
       </div>
-      <div></div>
     </div>
+    <canvas id="game"> </canvas>
+    <script src="assets/js/game.js"></script>
   </body>
 </html>

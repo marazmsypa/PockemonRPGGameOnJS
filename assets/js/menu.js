@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  up();
   let switch_menu_type = 0;
   let main_menu_screen = $(".main_menu");
   let new_game_screen = $(".new_game");
@@ -63,6 +64,31 @@ $(document).ready(function () {
     } else {
       block_menu.css("display", "none");
       block_game.css("display", "block");
+      Game();
+      alert("Это начальная лока, т.е. хаб лока");
     }
   });
+
+  let main_menu_img = $(".img_menu");
+  let top = window.innerHeight / 20;
+  function up() {
+    let timer_to_up = setInterval(function () {
+      top += 1;
+      main_menu_img.css("top", top);
+      if (top > window.innerHeight / 10) {
+        clearInterval(timer_to_up);
+        down();
+      }
+    }, 20);
+  }
+  function down() {
+    let timer_to_down = setInterval(function () {
+      top -= 1;
+      main_menu_img.css("top", top);
+      if (top < window.innerHeight / 20) {
+        clearInterval(timer_to_down);
+        up();
+      }
+    }, 20);
+  }
 });
