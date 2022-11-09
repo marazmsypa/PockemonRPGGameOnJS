@@ -65,7 +65,6 @@ $(document).ready(function () {
       block_menu.css("display", "none");
       block_game.css("display", "block");
       Game();
-      alert("Это начальная лока, т.е. хаб лока");
     }
   });
 

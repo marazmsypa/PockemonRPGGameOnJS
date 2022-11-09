@@ -176,7 +176,9 @@
 }
 #game {
   display: none;
-  background: lightblue;
+  background-image: url(../img/spriteh2ou.png);
+  background-repeat: no-repeat;
+  background-size: 85vw 80vh;
   height: 100vh;
   width: 100vw;
 }
