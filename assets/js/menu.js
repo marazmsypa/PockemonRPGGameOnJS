@@ -90,4 +90,13 @@ $(document).ready(function () {
       }
     }, 20);
   }
+  $("#location_pick .location button").click(function () {
+    let confirm_journey = $("#confirm_journey");
+    confirm_journey.fadeIn();
+    adventure_type = $(this).attr("type");
+  });
+  $(".no").click(function () {
+    let confirm_journey = $("#confirm_journey");
+    confirm_journey.fadeOut();
+  });
 });

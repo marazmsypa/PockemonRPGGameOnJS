@@ -221,3 +221,46 @@
 #location_pick div button {
   margin-top: 1vh;
 }
+
+#confirm_journey {
+  width: 85vw;
+  height: 80vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+#confirm_journey .confirm_buttons {
+  background: #affeff;
+  border-radius: 10px;
+  margin-left: 20vw;
+  width: 45vw;
+  height: 40vh;
+  margin-top: 20vh;
+}
+
+#confirm_journey p {
+  text-align: center;
+  padding-top: 6vh;
+}
+
+.confirm_suggest {
+  margin-top: 17vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm_suggest button {
+  border: none;
+  background: none;
+  padding: 3vh 6vw 3vh 6vw;
+  cursor: pointer;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.confirm_suggest .no {
+  background-image: url(../img/red.png);
+}

@@ -16,7 +16,30 @@ let enter_button_img = new Image();
 enter_button_img.src = "assets/img/buttons/enter_button.png";
 let esc_button_img = new Image();
 esc_button_img.src = "assets/img/buttons/esc_button.png";
+let player_head = new Image();
+player_head.src = "assets/img/player_head.png";
+
+let map_icon_koster = new Image();
+map_icon_koster.src = "assets/img/maps/icons/koster.png";
+let map_icon_mech = new Image();
+map_icon_mech.src = "assets/img/maps/icons/mech.png";
+let map_icon_mone = new Image();
+map_icon_mone.src = "assets/img/maps/icons/mone.png";
+let map_icon_skelt = new Image();
+map_icon_skelt.src = "assets/img/maps/icons/skelt.png";
+let map_icon_sundukoo = new Image();
+map_icon_sundukoo.src = "assets/img/maps/icons/sundukoo.png";
+let map_icon_yablo = new Image();
+map_icon_yablo.src = "assets/img/maps/icons/yablo.png";
+let map_lines = new Image();
+map_lines.src = "assets/img/maps/icons/lines.png";
+let galochka = new Image();
+galochka.src = "assets/img/maps/icons/galochka.png";
+
 //
+let player_movement_ability = 0;
+
+let adventure_type;
 let game_mode = 1;
 // 1 - активный 0 - меню или действие
 let game_variant = 0;
@@ -32,6 +55,16 @@ let player = {
   img_w: 900 / 4,
   img_h: 1089 / 4,
 };
+let player_on_map = {
+  w: 40,
+  h: 40,
+  speed: 5,
+  x: 0,
+  y: 0,
+};
+let array_map = [];
+let lines_map = [];
+
 document.addEventListener("keydown", movePlayer);
 function Game() {
   if (game_mode == 1 && game_variant == 0) {
@@ -47,6 +80,32 @@ function Game() {
       player.w,
       player.h
     );
+  }
+  //активный поход
+  if (game_mode == 1 && game_variant == 2) {
+    for (let i = 0; i < array_map.length; i++) {
+      context.drawImage(
+        array_map[i].img,
+        array_map[i].x,
+        array_map[i].y,
+        array_map[i].w,
+        array_map[i].h
+      );
+    }
+    for (let i = 0; i < lines_map.length; i++) {
+      context.drawImage(
+        lines_map[i].img,
+        lines_map[i].img_x,
+        lines_map[i].img_y,
+        lines_map[i].img_w,
+        lines_map[i].img_h,
+        lines_map[i].x,
+        lines_map[i].y,
+        lines_map[i].w,
+        lines_map[i].h
+      );
+    }
+    context.drawImage(player_head, player_on_map.x, player_on_map.y, 40, 40);
   }
   document.addEventListener("keydown", movePlayer);
   requestAnimationFrame(Game);
@@ -85,6 +144,83 @@ function movePlayer(pressKey) {
         break;
     }
   }
+  //карта передвижение
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  if (
+    pressKey.keyCode == 87 &&
+    game_mode == 1 &&
+    game_variant == 2 &&
+    array_map[player_movement_ability].may_pass == true
+  ) {
+    if (player_movement_ability < array_map.length) {
+      player_movement_ability++;
+    }
+    player_on_map.x = array_map[player_movement_ability].x;
+    player_on_map.y = array_map[player_movement_ability].y;
+    game_text.innerHTML = array_map[player_movement_ability].description;
+    if (array_map[player_movement_ability].visited == false) {
+      context.drawImage(
+        enter_button_img,
+        width_screen / 1.14,
+        height_screen / 1.16,
+        180,
+        70
+      );
+    } else {
+      context.clearRect(
+        width_screen / 1.17,
+        height_screen / 1.24,
+        width_screen - width_screen / 1.17,
+        height_screen - height_screen / 1.24
+      );
+    }
+  }
+  if (pressKey.keyCode == 83 && game_mode == 1 && game_variant == 2) {
+    if (player_movement_ability > 0) {
+      player_movement_ability--;
+    }
+    player_on_map.x = array_map[player_movement_ability].x;
+    player_on_map.y = array_map[player_movement_ability].y;
+    game_text.innerHTML = array_map[player_movement_ability].description;
+    if (array_map[player_movement_ability].visited == false) {
+      context.drawImage(
+        enter_button_img,
+        width_screen / 1.14,
+        height_screen / 1.16,
+        180,
+        70
+      );
+    } else {
+      context.clearRect(
+        width_screen / 1.17,
+        height_screen / 1.24,
+        width_screen - width_screen / 1.17,
+        height_screen - height_screen / 1.24
+      );
+    }
+  }
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   if (pressKey.keyCode == 13) {
     if (game_mode == 0) {
       game_text.innerHTML = "";
@@ -312,8 +448,162 @@ function movePlayer(pressKey) {
 
 function adventure_start() {
   game_variant = 2;
-  canvas.style.backgroundImage = "url(assets/img/maps/forest_map.png)";
-  locations.style = "display: none";
+  game_mode = 1;
+  if (adventure_type == 1) {
+    canvas.style.backgroundImage = "url(assets/img/maps/forest_map.png)";
+    player_on_map.x = width_screen / 2.27;
+    player_on_map.y = height_screen / 1.37;
+    spawn_object(2.27, 1.37, 7);
+    spawn_object(2.27, 1.98, 2);
+    drawLine(2.27, 1.98, 2.27, 1.37, 1);
+    spawn_object(1.53, 1.98, getRandomInt(5, 2));
+    drawLine(2.27, 1.98, 1.53, 1.98, 2);
+    spawn_object(1.53, 11.53, 2);
+
+    drawLine(1.53, 11.53, 1.53, 1.98, 1);
+    spawn_object(1.44, 11.53, getRandomInt(5, 2));
+
+    drawLine(1.53, 11.53, 1.44, 11.53, 2);
+    spawn_object(1.44, 107, 1);
+    drawLine(1.44, 107, 1.44, 11.53, 1);
+  }
   context.clearRect(0, 0, width_screen, height_screen);
-  alert("nigger");
+  locations.style = "display: none";
+  confirm_journey.style = "display: none";
+}
+
+function spawn_object(object_x, object_y, object_type) {
+  switch (object_type) {
+    //бой с боссом
+    case 1:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 1,
+        w: 40,
+        h: 40,
+        img: map_icon_skelt,
+        visited: false,
+        description: "Сражение с боссом",
+        may_pass: false,
+      });
+      break;
+    //обычный бой
+    case 2:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 2,
+        w: 40,
+        h: 40,
+        img: map_icon_mech,
+        visited: false,
+        description: "Сражение",
+        may_pass: false,
+      });
+      break;
+    //магазин
+    case 3:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 3,
+        w: 40,
+        h: 40,
+        img: map_icon_mone,
+        visited: false,
+        description: "Магазин",
+        may_pass: true,
+      });
+      break;
+    //костер
+    case 4:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 4,
+        w: 40,
+        h: 40,
+        img: map_icon_koster,
+        visited: false,
+        description: "Костер",
+        may_pass: true,
+      });
+      break;
+    case 5:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 5,
+        w: 40,
+        h: 40,
+        img: map_icon_sundukoo,
+        visited: false,
+        description: "Сундук",
+        may_pass: true,
+      });
+      break;
+    case 6:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 6,
+        w: 40,
+        h: 40,
+        img: map_icon_yablo,
+        visited: false,
+        description: "Странные фрукты",
+        may_pass: true,
+      });
+      break;
+    //галочка
+    case 7:
+      array_map.push({
+        x: width_screen / object_x,
+        y: height_screen / object_y,
+        type: 7,
+        w: 40,
+        h: 40,
+        img: galochka,
+        visited: true,
+        description: "Пройдено",
+        may_pass: true,
+      });
+      break;
+  }
+}
+
+function drawLine(x_start, y_start, x_end, y_end, type_of_line) {
+  //вертикальная
+  if (type_of_line == 1) {
+    lines_map.push({
+      img: map_lines,
+      img_x: 0,
+      img_y: 0,
+      img_w: 5,
+      img_h: height_screen / y_end - (height_screen / y_start + 40),
+      x: width_screen / x_start + 17,
+      y: height_screen / y_start + 40,
+      w: 5,
+      h: height_screen / y_end - (height_screen / y_start + 40),
+    });
+  }
+  //горищонтальная
+  if (type_of_line == 2) {
+    lines_map.push({
+      img: map_lines,
+      img_x: 5,
+      img_y: 0,
+      img_w: width_screen / x_end - (width_screen / x_start + 40),
+      img_h: 5,
+      x: width_screen / x_start + 40,
+      y: height_screen / y_start + 17,
+      w: width_screen / x_end - (width_screen / x_start + 40),
+      h: 5,
+    });
+  }
+}
+
+function getRandomInt(max, step) {
+  return Math.floor(Math.random() * max + step);
 }

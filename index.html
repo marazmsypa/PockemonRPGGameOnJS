@@ -47,12 +47,21 @@
     <canvas id="game"> </canvas>
     <p id="game_text"></p>
     <div id="location_pick">
-      <div>
+      <div class="location">
         <img src="assets/img/maps/forest.png" alt="forest" />
         <p>Лес Веридиан</p>
-        <button class="to_journey" onclick="adventure_start()">
-          Отправиться
-        </button>
+        <button class="to_journey" type="1">Отправиться</button>
+      </div>
+    </div>
+    <div id="confirm_journey">
+      <div class="confirm_buttons">
+        <div>
+          <p>Отправиться в выбранное путешествие?</p>
+        </div>
+        <div class="confirm_suggest">
+          <button class="no">Нет</button>
+          <button onclick="adventure_start()">Да</button>
+        </div>
       </div>
     </div>
     <script src="assets/js/home.js"></script>
