@@ -1,7 +1,6 @@
 let pokemons_array = [];
-let active_pokemons_array = [];
 let player_pokemons_array = [];
-
+let active_pokemons_array = [];
 let scale_fight = 5;
 function addPokemon_to_base(
   pokemon_id,
@@ -46,6 +45,34 @@ function addPokemon_to_base(
     sprite_normal_y: pokemon_sprite_normal_y,
     sprite_normal_w: pokemon_sprite_normal_w,
     sprite_normal_h: pokemon_sprite_normal_h,
+    attack_1: 0,
+    attack_2: 0,
+    attack_3: 0,
+    attack_4: 0,
+  });
+}
+function addPokemon_to_player(id_pokemon) {
+  player_pokemons_array.push({
+    id: pokemons_array[id_pokemon].id,
+    name: pokemons_array[id_pokemon].name,
+    type: pokemons_array[id_pokemon].type,
+    max_hp: pokemons_array[id_pokemon].max_hp,
+    hp: pokemons_array[id_pokemon].hp,
+    attack: pokemons_array[id_pokemon].attack,
+    level: pokemons_array[id_pokemon].level,
+    level_increase: pokemons_array[id_pokemon].level_increase,
+    ex: pokemons_array[id_pokemon].ex,
+    ex_to_lvl: pokemons_array[id_pokemon].ex_to_lvl,
+    sprite_fight_x: pokemons_array[id_pokemon].sprite_fight_x,
+    sprite_fight_y: pokemons_array[id_pokemon].sprite_fight_y,
+    sprite_fight_you_x: pokemons_array[id_pokemon].sprite_fight_you_x,
+    sprite_fight_you_y: pokemons_array[id_pokemon].sprite_fight_you_y,
+    sprite_fight_w: pokemons_array[id_pokemon].sprite_fight_w,
+    sprite_fight_h: pokemons_array[id_pokemon].sprite_fight_h,
+    sprite_normal_x: pokemons_array[id_pokemon].sprite_normal_x,
+    sprite_normal_y: pokemons_array[id_pokemon].sprite_normal_y,
+    sprite_normal_w: pokemons_array[id_pokemon].sprite_normal_w,
+    sprite_normal_h: pokemons_array[id_pokemon].sprite_normal_h,
     attack_1: 0,
     attack_2: 0,
     attack_3: 0,
@@ -192,19 +219,33 @@ addPokemon_to_base(
   11
 );
 
-player_pokemons_array.push(pokemons_array[4]);
+addPokemon_to_player(4);
+addPokemon_to_player(0);
+addPokemon_to_player(1);
+addPokemon_to_player(2);
+addPokemon_to_player(3);
+addPokemon_to_player(5);
+active_pokemons_array.push(player_pokemons_array[0]);
+active_pokemons_array.push(player_pokemons_array[1]);
+active_pokemons_array.push(player_pokemons_array[2]);
+active_pokemons_array.push(player_pokemons_array[3]);
+active_pokemons_array.push(player_pokemons_array[4]);
+active_pokemons_array.push(player_pokemons_array[5]);
 player_pokemons_array[0].attack_1 = 24;
-player_pokemons_array[0].attack_2 = 24;
-player_pokemons_array[0].attack_3 = 24;
-player_pokemons_array[0].attack_4 = 24;
-active_pokemons_array.push(pokemons_array[4]);
-player_pokemons_array.push(pokemons_array[1]);
-active_pokemons_array.push(pokemons_array[1]);
-player_pokemons_array.push(pokemons_array[2]);
-active_pokemons_array.push(pokemons_array[2]);
-player_pokemons_array.push(pokemons_array[3]);
-active_pokemons_array.push(pokemons_array[3]);
-player_pokemons_array.push(pokemons_array[5]);
-active_pokemons_array.push(pokemons_array[5]);
-player_pokemons_array.push(pokemons_array[0]);
-active_pokemons_array.push(pokemons_array[0]);
+player_pokemons_array[0].attack_2 = 3;
+player_pokemons_array[0].attack_3 = 8;
+player_pokemons_array[1].attack_1 = 2;
+player_pokemons_array[1].attack_2 = 4;
+player_pokemons_array[1].attack_3 = 9;
+player_pokemons_array[2].attack_1 = 1;
+player_pokemons_array[2].attack_2 = 2;
+player_pokemons_array[2].attack_3 = 5;
+player_pokemons_array[3].attack_1 = 6;
+player_pokemons_array[3].attack_2 = 7;
+player_pokemons_array[3].attack_3 = 10;
+player_pokemons_array[4].attack_1 = 11;
+player_pokemons_array[4].attack_2 = 12;
+player_pokemons_array[4].attack_3 = 13;
+player_pokemons_array[5].attack_1 = 14;
+player_pokemons_array[5].attack_2 = 15;
+player_pokemons_array[5].attack_3 = 16;

@@ -64,25 +64,56 @@
         </div>
       </div>
     </div>
+    <div id="right_menu_on_no_fight">
+      <div onclick="rightMenuClick(6)"></div>
+      <div onclick="rightMenuClick(0)"></div>
+      <div onclick="rightMenuClick(1)"></div>
+      <div onclick="rightMenuClick(2)"></div>
+      <div onclick="rightMenuClick(3)"></div>
+      <div onclick="rightMenuClick(4)"></div>
+      <div onclick="rightMenuClick(5)"></div>
+    </div>
+
     <!--Меню для битвы-->
     <div id="fight_menu">
       <div class="justify">
         <button class="change_buttons_button">Сменить покемона</button>
         <div class="change_buttons justify">
-          <button class="change_pokemon">1 покемон</button>
-          <button class="change_pokemon">2 покемон</button>
-          <button class="change_pokemon">3 покемон</button>
-          <button class="change_pokemon">4 покемон</button>
-          <button class="change_pokemon">5 покемон</button>
+          <button class="change_pokemon" onclick="change_pokemon_battle_1()">
+            1 покемон
+          </button>
+          <button class="change_pokemon" onclick="change_pokemon_battle_2()">
+            2 покемон
+          </button>
+          <button class="change_pokemon" onclick="change_pokemon_battle_3()">
+            3 покемон
+          </button>
+          <button class="change_pokemon" onclick="change_pokemon_battle_4()">
+            4 покемон
+          </button>
+          <button class="change_pokemon" onclick="change_pokemon_battle_5()">
+            5 покемон
+          </button>
+          <button class="change_pokemon" onclick="change_pokemon_battle_6()">
+            6 покемон
+          </button>
         </div>
       </div>
       <div class="justify">
         <button class="attacks_button">Атаковать</button>
         <div class="attacks justify">
-          <button class="attack_pokemon">Атака 1</button>
-          <button class="attack_pokemon">Атака 2</button>
-          <button class="attack_pokemon">Атака 3</button>
-          <button class="attack_pokemon">Атака 4</button>
+          <button class="attack_pokemon" onclick="attack_use(1)">
+            Атака 1
+          </button>
+          <button class="attack_pokemon" onclick="attack_use(2)">
+            Атака 2
+          </button>
+          <button class="attack_pokemon" onclick="attack_use(3)">
+            Атака 3
+          </button>
+          <button class="attack_pokemon" onclick="attack_use(4)">
+            Атака 4
+          </button>
         </div>
       </div>
       <div class="justify">

@@ -299,6 +299,7 @@
 }
 
 .info_enemy_show_p {
+  margin-top: 10px;
   display: none;
 }
 
@@ -316,6 +317,7 @@
   background-image: url(../img/green.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  cursor: pointer;
 }
 
 .change_buttons button {
@@ -324,6 +326,7 @@
   background-image: url(../img/yellow.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  cursor: pointer;
 }
 
 .attacks_button {
@@ -332,6 +335,7 @@
   background-image: url(../img/green.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  cursor: pointer;
 }
 
 .info_enemy_show {
@@ -340,6 +344,7 @@
   background-image: url(../img/green.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  cursor: pointer;
 }
 
 .open_sumka {
@@ -348,6 +353,7 @@
   background-image: url(../img/green.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  cursor: pointer;
 }
 
 .attacks button {
@@ -356,4 +362,38 @@
   background-image: url(../img/yellow.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.change_buttons button {
+  display: none;
+}
+
+.info_enemy {
+  text-align: center;
+}
+
+#right_menu_on_no_fight {
+  position: absolute;
+  top: 0;
+  left: 86.04vw;
+  width: 8vw;
+  padding-top: 1vh;
+  padding-left: 3.8vw;
+}
+
+#right_menu_on_no_fight div {
+  width: 5.36vw;
+  height: 10.62vh;
+  margin-top: 0.6vh;
+  cursor: pointer;
+}
+
+#download_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
 }

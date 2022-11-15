@@ -114,6 +114,7 @@ function Game() {
     context.drawImage(player_head, player_on_map.x, player_on_map.y, 40, 40);
   }
   if (game_mode == 1 && game_variant == 3) {
+    context.clearRect(0, 0, width_screen / 1.17, height_screen / 1.24);
     context.drawImage(
       pokemon_you_img,
       fight_you.sprite_fight_you_x,
@@ -314,54 +315,57 @@ function movePlayer(pressKey) {
         70
       );
     }
-    switch (game_object) {
-      case 1:
-        game_mode = 0;
-        game_variant = 1;
-        locations.style = "display: flex";
-        context.drawImage(
-          esc_button_img,
-          width_screen / 1.14,
-          height_screen / 1.16,
-          180,
-          70
-        );
-        break;
-      case 2:
-        game_text.innerHTML =
-          "Не проводите слишком много времени за компом без отдыха!";
-        game_mode = 0;
-        break;
-      case 3:
-        game_text.innerHTML = "Здесь находится ваша одежда";
-        game_mode = 0;
-        break;
-      case 4:
-        game_text.innerHTML =
-          "Вы открыли книгу и начали читать: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
-        game_mode = 0;
-        break;
-      case 5:
-        game_text.innerHTML = "Этот цветок в вашем доме невероятно радует вас!";
-        game_mode = 0;
-        break;
-      case 6:
-        game_text.innerHTML = "Эта стойка с кактусами дарует вам решимость";
-        game_mode = 0;
-        break;
-      case 7:
-        game_text.innerHTML = "Какой замечательный вид из этого окна!";
-        game_mode = 0;
-        break;
-      case 8:
-        game_text.innerHTML = "Вы вымыли свои грязные руки";
-        game_mode = 0;
-        break;
-      case 9:
-        game_text.innerHTML =
-          "Сейчас на улице очень грязно и вы не можете пойти в магазин";
-        game_mode = 0;
-        break;
+    if (game_mode == 1 && game_variant == 0) {
+      switch (game_object) {
+        case 1:
+          game_mode = 0;
+          game_variant = 1;
+          locations.style = "display: flex";
+          context.drawImage(
+            esc_button_img,
+            width_screen / 1.14,
+            height_screen / 1.16,
+            180,
+            70
+          );
+          break;
+        case 2:
+          game_text.innerHTML =
+            "Не проводите слишком много времени за компом без отдыха!";
+          game_mode = 0;
+          break;
+        case 3:
+          game_text.innerHTML = "Здесь находится ваша одежда";
+          game_mode = 0;
+          break;
+        case 4:
+          game_text.innerHTML =
+            "Вы открыли книгу и начали читать: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+          game_mode = 0;
+          break;
+        case 5:
+          game_text.innerHTML =
+            "Этот цветок в вашем доме невероятно радует вас!";
+          game_mode = 0;
+          break;
+        case 6:
+          game_text.innerHTML = "Эта стойка с кактусами дарует вам решимость";
+          game_mode = 0;
+          break;
+        case 7:
+          game_text.innerHTML = "Какой замечательный вид из этого окна!";
+          game_mode = 0;
+          break;
+        case 8:
+          game_text.innerHTML = "Вы вымыли свои грязные руки";
+          game_mode = 0;
+          break;
+        case 9:
+          game_text.innerHTML =
+            "Сейчас на улице очень грязно и вы не можете пойти в магазин";
+          game_mode = 0;
+          break;
+      }
     }
   }
   console.log(pressKey.keyCode);
@@ -508,7 +512,7 @@ function adventure_start() {
         player_on_map.x = width_screen / 2.27;
         player_on_map.y = height_screen / 1.37;
         spawn_object(2.27, 1.37, 7);
-        spawn_object(2.27, 1.98, 4);
+        spawn_object(2.27, 1.98, 2);
         drawLine(2.27, 1.98, 2.27, 1.37, 1);
         spawn_object(1.53, 1.98, getRandomInt(5, 2));
         drawLine(2.27, 1.98, 1.53, 1.98, 2);
@@ -518,7 +522,7 @@ function adventure_start() {
         spawn_object(1.44, 11.53, getRandomInt(5, 2));
 
         drawLine(1.53, 11.53, 1.44, 11.53, 2);
-        spawn_object(1.44, 107, 1);
+        spawn_object(1.44, 107, 2);
         drawLine(1.44, 107, 1.44, 11.53, 1);
       }
       context.clearRect(0, 0, width_screen / 1.17, height_screen / 1.24);
