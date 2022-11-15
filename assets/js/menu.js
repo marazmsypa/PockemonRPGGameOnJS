@@ -65,6 +65,7 @@ $(document).ready(function () {
       block_menu.css("display", "none");
       block_game.css("display", "block");
       Game();
+      rightMenu();
     }
   });
 
@@ -98,5 +99,58 @@ $(document).ready(function () {
   $(".no").click(function () {
     let confirm_journey = $("#confirm_journey");
     confirm_journey.fadeOut();
+    game_mode = 1;
+  });
+  let info_pressed = false;
+  let info_enemy_show_p = $(".info_enemy_show_p");
+  $(".info_enemy_show").click(function () {
+    switch (info_pressed) {
+      case false:
+        info_enemy_show_p.css("display", "flex");
+        $(".change_buttons").css("display", "none");
+        $(".attacks").css("display", "none");
+        changed_pressed = false;
+        info_pressed = true;
+        attack_pressed = false;
+        break;
+      case true:
+        info_enemy_show_p.css("display", "none");
+        info_pressed = false;
+        break;
+    }
+  });
+  let changed_pressed = false;
+  $(".change_buttons_button").click(function () {
+    switch (changed_pressed) {
+      case false:
+        $(".change_buttons").css("display", "flex");
+        $(".attacks").css("display", "none");
+        info_enemy_show_p.css("display", "none");
+        info_pressed = false;
+        attack_pressed = false;
+        changed_pressed = true;
+        break;
+      case true:
+        $(".change_buttons").css("display", "none");
+        changed_pressed = false;
+        break;
+    }
+  });
+  let attack_pressed = false;
+  $(".attacks_button").click(function () {
+    switch (attack_pressed) {
+      case false:
+        $(".attacks").css("display", "flex");
+        $(".change_buttons").css("display", "none");
+        info_enemy_show_p.css("display", "none");
+        attack_pressed = true;
+        changed_pressed = false;
+        info_pressed = false;
+        break;
+      case true:
+        $(".attacks").css("display", "none");
+        attack_pressed = false;
+        break;
+    }
   });
 });

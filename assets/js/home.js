@@ -36,6 +36,12 @@ map_lines.src = "assets/img/maps/icons/lines.png";
 let galochka = new Image();
 galochka.src = "assets/img/maps/icons/galochka.png";
 
+let pokemon_normal_img = new Image();
+pokemon_normal_img.src = "assets/img/pokemons/sprites.png";
+let pokemon_you_img = new Image();
+pokemon_you_img.src = "assets/img/pokemons/sprites_for_fight_you.png";
+let pokemon_enemy_img = new Image();
+pokemon_enemy_img.src = "assets/img/pokemons/sprites_for_fight.png";
 //
 let player_movement_ability = 0;
 
@@ -107,6 +113,30 @@ function Game() {
     }
     context.drawImage(player_head, player_on_map.x, player_on_map.y, 40, 40);
   }
+  if (game_mode == 1 && game_variant == 3) {
+    context.drawImage(
+      pokemon_you_img,
+      fight_you.sprite_fight_you_x,
+      fight_you.sprite_fight_you_y,
+      fight_you.sprite_fight_w,
+      fight_you.sprite_fight_h,
+      width_screen / 7.5,
+      height_screen / 1.64,
+      width_screen / 9.84,
+      height_screen / 5.32
+    );
+    context.drawImage(
+      pokemon_enemy_img,
+      fight_enemy.sprite_fight_x,
+      fight_enemy.sprite_fight_y,
+      fight_enemy.sprite_fight_w,
+      fight_enemy.sprite_fight_h,
+      width_screen / 1.57,
+      height_screen / 1.64,
+      width_screen / 9.84,
+      height_screen / 5.32
+    );
+  }
   document.addEventListener("keydown", movePlayer);
   requestAnimationFrame(Game);
 }
@@ -116,6 +146,7 @@ let game_object = 0;
 let game_active = 0;
 let player_right_corner_x = player.x + player.w;
 let player_bottom_y = player.y + player.h;
+let confirm_message = document.getElementsByClassName("confirm_message")[0];
 function movePlayer(pressKey) {
   game_active = 0;
   //69 Е
@@ -222,7 +253,7 @@ function movePlayer(pressKey) {
   //
   //
   if (pressKey.keyCode == 13) {
-    if (game_mode == 0) {
+    if (game_mode == 0 && game_variant == 0) {
       game_text.innerHTML = "";
       game_mode = 1;
       context.clearRect(
@@ -232,9 +263,25 @@ function movePlayer(pressKey) {
         height_screen - height_screen / 1.24
       );
     }
+    if (game_variant == 2) {
+      switch (game_mode) {
+        case 1:
+          startEvent();
+          break;
+        case 0:
+          array_map[player_movement_ability].type = 7;
+          array_map[player_movement_ability].img = galochka;
+          array_map[player_movement_ability].visited = true;
+          array_map[player_movement_ability].description = "Пройдено";
+          array_map[player_movement_ability].may_pass = true;
+          game_mode = 1;
+          break;
+      }
+    }
   }
   if (pressKey.keyCode == 27) {
     if (game_variant == 1) {
+      confirm_journey.style = "display: none";
       game_mode = 1;
       game_variant = 0;
       locations.style = "display: none";
@@ -244,6 +291,11 @@ function movePlayer(pressKey) {
         width_screen - width_screen / 1.17,
         height_screen - height_screen / 1.24
       );
+    }
+    if (game_variant == 2 && game_mode == 1) {
+      confirm_message.innerHTML = "Выйти из путешествия?";
+      game_mode = 0;
+      confirm_journey.style = "display: block";
     }
   }
   if (pressKey.keyCode == 69) {
@@ -447,29 +499,45 @@ function movePlayer(pressKey) {
 }
 
 function adventure_start() {
-  game_variant = 2;
-  game_mode = 1;
-  if (adventure_type == 1) {
-    canvas.style.backgroundImage = "url(assets/img/maps/forest_map.png)";
-    player_on_map.x = width_screen / 2.27;
-    player_on_map.y = height_screen / 1.37;
-    spawn_object(2.27, 1.37, 7);
-    spawn_object(2.27, 1.98, 2);
-    drawLine(2.27, 1.98, 2.27, 1.37, 1);
-    spawn_object(1.53, 1.98, getRandomInt(5, 2));
-    drawLine(2.27, 1.98, 1.53, 1.98, 2);
-    spawn_object(1.53, 11.53, 2);
+  switch (game_variant) {
+    case 1:
+      game_variant = 2;
+      game_mode = 1;
+      if (adventure_type == 1) {
+        canvas.style.backgroundImage = "url(assets/img/maps/forest_map.png)";
+        player_on_map.x = width_screen / 2.27;
+        player_on_map.y = height_screen / 1.37;
+        spawn_object(2.27, 1.37, 7);
+        spawn_object(2.27, 1.98, 4);
+        drawLine(2.27, 1.98, 2.27, 1.37, 1);
+        spawn_object(1.53, 1.98, getRandomInt(5, 2));
+        drawLine(2.27, 1.98, 1.53, 1.98, 2);
+        spawn_object(1.53, 11.53, 2);
 
-    drawLine(1.53, 11.53, 1.53, 1.98, 1);
-    spawn_object(1.44, 11.53, getRandomInt(5, 2));
+        drawLine(1.53, 11.53, 1.53, 1.98, 1);
+        spawn_object(1.44, 11.53, getRandomInt(5, 2));
 
-    drawLine(1.53, 11.53, 1.44, 11.53, 2);
-    spawn_object(1.44, 107, 1);
-    drawLine(1.44, 107, 1.44, 11.53, 1);
+        drawLine(1.53, 11.53, 1.44, 11.53, 2);
+        spawn_object(1.44, 107, 1);
+        drawLine(1.44, 107, 1.44, 11.53, 1);
+      }
+      context.clearRect(0, 0, width_screen / 1.17, height_screen / 1.24);
+      locations.style = "display: none";
+      confirm_journey.style = "display: none";
+      break;
+    case 2:
+      game_mode = 1;
+      game_variant = 0;
+      game_text.innerHTML = "";
+      canvas.style.backgroundImage = "url(assets/img/home_final.png)";
+      context.clearRect(0, 0, width_screen / 1.17, height_screen / 1.24);
+      confirm_journey.style = "display: none";
+      confirm_message.innerHTML = "Отправиться в выбранное путешествие?";
+      player_movement_ability = 0;
+      array_map = [];
+      lines_map = [];
+      break;
   }
-  context.clearRect(0, 0, width_screen, height_screen);
-  locations.style = "display: none";
-  confirm_journey.style = "display: none";
 }
 
 function spawn_object(object_x, object_y, object_type) {

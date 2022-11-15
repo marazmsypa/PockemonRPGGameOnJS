@@ -264,3 +264,96 @@
 .confirm_suggest .no {
   background-image: url(../img/red.png);
 }
+
+#fight_menu {
+  position: absolute;
+  top: 0;
+  left: 86.04vw;
+  width: 12.91vw;
+  display: none;
+}
+
+.hp {
+  margin-top: 10px;
+  background: white;
+  padding: 1px;
+  height: 30px;
+  width: 12.91vw;
+}
+
+.hp_name {
+  margin-top: 10px;
+}
+
+#fight_menu button {
+  margin-top: 10px;
+  height: 5vh;
+  width: 12.91vw;
+}
+
+.justify {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.info_enemy_show_p {
+  display: none;
+}
+
+.change_buttons {
+  display: none;
+}
+
+.attacks {
+  display: none;
+}
+
+.change_buttons_button {
+  background: none;
+  border: none;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.change_buttons button {
+  background: none;
+  border: none;
+  background-image: url(../img/yellow.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.attacks_button {
+  background: none;
+  border: none;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.info_enemy_show {
+  background: none;
+  border: none;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.open_sumka {
+  background: none;
+  border: none;
+  background-image: url(../img/green.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.attacks button {
+  background: none;
+  border: none;
+  background-image: url(../img/yellow.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

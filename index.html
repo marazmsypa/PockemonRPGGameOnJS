@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png" />
     <script src="assets/js/jquery361.js"></script>
-    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/attacks.js"></script>
     <title>Pokemon RPG</title>
   </head>
   <body>
@@ -56,7 +56,7 @@
     <div id="confirm_journey">
       <div class="confirm_buttons">
         <div>
-          <p>Отправиться в выбранное путешествие?</p>
+          <p class="confirm_message">Отправиться в выбранное путешествие?</p>
         </div>
         <div class="confirm_suggest">
           <button class="no">Нет</button>
@@ -64,7 +64,55 @@
         </div>
       </div>
     </div>
+    <!--Меню для битвы-->
+    <div id="fight_menu">
+      <div class="justify">
+        <button class="change_buttons_button">Сменить покемона</button>
+        <div class="change_buttons justify">
+          <button class="change_pokemon">1 покемон</button>
+          <button class="change_pokemon">2 покемон</button>
+          <button class="change_pokemon">3 покемон</button>
+          <button class="change_pokemon">4 покемон</button>
+          <button class="change_pokemon">5 покемон</button>
+        </div>
+      </div>
+      <div class="justify">
+        <button class="attacks_button">Атаковать</button>
+        <div class="attacks justify">
+          <button class="attack_pokemon">Атака 1</button>
+          <button class="attack_pokemon">Атака 2</button>
+          <button class="attack_pokemon">Атака 3</button>
+          <button class="attack_pokemon">Атака 4</button>
+        </div>
+      </div>
+      <div class="justify">
+        <button class="info_enemy_show">Враг</button>
+        <div class="info_enemy_show_p justify">
+          <p class="info_enemy">Имя</p>
+          <p class="info_enemy">Лвл</p>
+          <p class="info_enemy">Дамаг</p>
+          <p class="info_enemy">Атака 1</p>
+          <p class="info_enemy">Атака 2</p>
+          <p class="info_enemy">Атака 3</p>
+          <p class="info_enemy">Атака 4</p>
+        </div>
+      </div>
+      <div class="justify justify">
+        <button class="open_sumka">Открыть сумку</button>
+      </div>
+      <div class="hp_bars justify">
+        <p class="hp_name">Ваш покемон</p>
+        <progress class="hp" max="100" value="70"></progress>
+        <p class="hp_name">Противник</p>
+        <progress class="hp" max="100" value="70"></progress>
+      </div>
+    </div>
     <script src="assets/js/home.js"></script>
     <script src="assets/js/inventory.js"></script>
+    <script src="assets/js/right_menu.js"></script>
+    <script src="assets/js/map_objects.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/pokemons.js"></script>
+    <script src="assets/js/fight.js"></script>
   </body>
 </html>
